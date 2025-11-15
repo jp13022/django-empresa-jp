@@ -1,7 +1,27 @@
 {% extends "base.html" %}
-{% block title %}Produtos {% endblock %}
+{% block title %}Produtos{% endblock %}
 
 {% block content %}
-    <h3>Página de Produtos</h3>
+    <h1> produtos</h1>
+    
+    {% for produto in produtos %}
+        
+    <section class="card-funcionario">
+        {% if produto.foto.url != null %}
+        <img src="{{ produto.foto.url }}" alt="Foto de {{produto.nome}}">
+        {% else %}
+        <img src="/static/images/camisa_do_flamengo.jpg" alt="Foto padrão de usuário">
+        {% endif %}
+        <div class="info-funcionario">
+            <h4>{{produto.nome}}</h4>
+            <p>Categoria: {{produto.categoria}} </p>
+            <p>Descricao: {{produto.descricao}} </p>
+            <p>Valor: {{produto.valor}}</p>
+            {% if produto.em_estoque == True %}
+                <p>Estoque: Ilimitado</p>
+            {% endif %}
+        </div>
+    </section>
+    {% endfor %}
 
 {% endblock %}

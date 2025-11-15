@@ -1,6 +1,6 @@
 # contato/forms.py
 from django import forms
-from .models import MensagemContato
+from .models import MensagemContato, Clientes
 
 class ContatoModelForm(forms.ModelForm):
     
@@ -26,3 +26,30 @@ class ContatoModelForm(forms.ModelForm):
             'nome': 'Nome Completo',
             'email': 'Seu E-mail',
         }
+
+class ClientesModelForm(forms.ModelForm):
+    
+    class Meta:
+        # 1. Especifica o modelo que este formulário irá usar
+        model = Clientes
+        
+        # 2. Especifica os campos do modelo que queremos exibir no formulário.
+        #    Note que 'data_envio' e 'lido' não estão aqui, pois
+        #    eles são definidos automaticamente (default) e não pelo usuário.
+        fields = ['nome', 'email', 'tel']
+
+        # 3. (Opcional) Personaliza os widgets para o HTML
+        widgets = {
+            'nome': forms.TextInput(attrs={'placeholder': 'Seu nome completo', 'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'seu-email@exemplo.com', 'class': 'form-control'}),
+            'tel': forms.EmailInput(attrs={'placeholder': 'Seu telefone', 'class': 'form-control'}),
+            
+        }
+        
+        # 4. (Opcional) Personaliza os labels (rótulos)
+        labels = {
+            'nome': 'Nome Completo',
+            'email': 'Seu E-mail',
+            'tel': 'DD + numero'
+        }
+

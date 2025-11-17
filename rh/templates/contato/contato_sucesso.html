@@ -5,7 +5,8 @@
     <div class="alert alert-success">
         <h1>Mensagem Enviada com Sucesso!</h1>
         <p>Obrigado pelo seu contato. Sua mensagem foi registrada.</p>
-        <a href="{% url 'contatos' %}">Enviar outra mensagem</a>
-        <a href="{% url 'clientes' %}">Dados enviados</a>
+
+        <a href="{% url 'contatos' %}" class="btn btn-secondary">Enviar outra mensagem</a>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Voltar para a página inicial</a>
     </div>
 {% endblock %}

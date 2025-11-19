@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Cupons{% endblock %}
+
+{% block content %}
+    <br><h1> Cupons de Desconto</h1></br>
+    
+    {% for cupom in cupons %}
+
+        <h2>{{cupom.titulo}}</h2>
+<br>
+            {{cupom.conteudo}}
+</br>
+
+    {% endfor %}
+
+{% endblock %}

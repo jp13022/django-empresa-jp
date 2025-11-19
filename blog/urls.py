@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import *
+from .views import cupons
 
 urlpatterns = [
-    path('posts/',posts,name="posts")
+    path('cupons/', cupons, name="cupons"),
 ]

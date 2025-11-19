@@ -1,7 +1,6 @@
 from django.contrib import admin
-from .models import Post
-# Register your models here.
+from .models import Cupom
 
-@admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
-    list_display = ('titulo','criado_em')
+@admin.register(Cupom)
+class CupomAdmin(admin.ModelAdmin):
+    list_display = ["titulo"]

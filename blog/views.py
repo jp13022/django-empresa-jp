@@ -1,8 +1,6 @@
 from django.shortcuts import render
-from .models import Post
+from .models import Cupom
 
-# Create your views here.
-def posts(request):
-    posts = Post.objects.order_by('-criado_em')
-    context = {"posts":posts}
-    return render(request,'posts.html',context)
+def cupons(request):
+    cupons = Cupom.objects.all()
+    return render(request, "cupom.html", {"cupons": cupons})

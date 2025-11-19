@@ -13,13 +13,14 @@
 </head>
 <body>
     <header class="header d-flex justify-content-between align-items-center">
-        <img src="/static/images/logo.jpg" alt="Logo do site" height="100" width="125">
+        <img src="/static/images/logo.png" alt="Logo do site" height="100" width="125">
+
 
         {% include "components/_navbar.html" %}
     </header>
     <main>
         {% block content%}
-
+        
         {% endblock %}
     </main>
     {% include "components/_footer.html" %}

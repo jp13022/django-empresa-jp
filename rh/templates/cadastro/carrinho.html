@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}Clientes{% endblock %}
+{% block title %}Carrinho{% endblock %}
 
 {% block content %}
-    <h3>Página de Clientes</h3>
-
-    <h2>Cadastro para Clientes</h2>
-    <p>Sua mensagem será salva em nosso banco de dados.</p>
+    <h1>Carrinho</h1>
+    <p>Para finalizar preencha os campos abaixo.</p>
 
     <form method="POST" class="col-md-6">
         {% csrf_token %}

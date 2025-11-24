@@ -1,8 +1,6 @@
-from django.shortcuts import redirect, render
-from .models import Funcionarios
-from .forms import ContatoModelForm, ClientesModelForm
+from django.shortcuts import render, redirect
 from .models import Produtos
-from .models import Clientes
+from .forms import ContatoModelForm, CarrinhoModelForm
 
 # Create your views here.
 def home(request):
@@ -15,17 +13,6 @@ def produtos(request):
     }
     return render(request,'produtos.html', context)
 
-def funcionarios(request):
-    funcionarios = Funcionarios.objects.filter(status=True)
-    context = {
-        'funcionarios': funcionarios
-    }
-    return render(request,'funcionarios.html',context)
-
-
-# ----------------------------------------
-# FORMULÁRIO DE CONTATO (NÃO MEXI)
-# ----------------------------------------
 
 def formulario_contato_view(request):
     if request.method == 'POST':
@@ -41,33 +28,21 @@ def formulario_contato_view(request):
     return render(request, 'contato/contatos.html', {'form': form})
 
 
-# ----------------------------------------
-# ✅ FORMULÁRIO DE CLIENTES (CORRIGIDO)
-# ----------------------------------------
-
-# ----------------------------------------
-# FORMULÁRIO DE CLIENTES (CORRIGIDO)
-# ----------------------------------------
-
 def clientes(request):
     if request.method == 'POST':
-        form = ClientesModelForm(request.POST)
+        form = CarrinhoModelForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('cliente_sucesso')  # redireciona para a página correta
+            return redirect('compra_efetuada')  # <-- nome correto
     else:
-        form = ClientesModelForm()
+        form = CarrinhoModelForm()
 
-    return render(request, 'cadastro/clientes.html', {'form': form})
+    return render(request, 'cadastro/carrinho.html', {'form': form})
+
+def compra_efetuada_view(request):
+    return render(request, 'cadastro/compra_efetuada.html')
 
 
-def cliente_sucesso_view(request):
-    return render(request, 'cadastro/cliente_sucesso.html')
-
-
-# ----------------------------------------
-# OUTRAS VIEWS (NÃO MEXI)
-# ----------------------------------------
 
 def contato_sucesso_view(request):
     return render(request, 'contato/contato_sucesso.html')

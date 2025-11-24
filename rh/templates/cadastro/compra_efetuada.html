@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Carrinho{% endblock %}
+
+{% block content %}
+    <div class="alert alert-success">
+        <h1>Compra realizada com sucesso!</h1>
+        <p>Seu pedido ja foi enviado.</p>
+
+        <a href="{% url 'carrinho' %}" class="btn btn-primary">Voltar ao carrinho</a>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Ver mais.</a>
+    </div>
+{% endblock %}

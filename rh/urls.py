@@ -4,12 +4,10 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('produtos/', views.produtos, name='produtos'),
-    path('clientes/', views.clientes, name='clientes'),
+    path('carrinho/', views.clientes, name='carrinho'),
 
     # NOVA ROTA — página de sucesso do cliente
-    path('clientes/sucesso/', views.cliente_sucesso_view, name='cliente_sucesso'),
-
-    path('funcionarios/', views.funcionarios, name='funcionarios'),
+    path('compra/efetuada/', views.compra_efetuada_view, name='compra_efetuada'),
 
     # Contatos
     path('contato/', views.formulario_contato_view, name='contatos'),

@@ -1,0 +1,19 @@
+<div class="container mt-5" style="max-width: 500px;">
+    <div class="card shadow p-4">
+        <h2 class="text-center mb-4">Criar Conta</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button class="btn btn-primary w-100" type="submit">
+                Registrar
+            </button>
+        </form>
+
+        <hr>
+        <p class="text-center">
+            Já tem conta? <a href="/login/">Entrar</a>
+        </p>
+    </div>
+</div>

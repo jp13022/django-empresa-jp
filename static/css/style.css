@@ -19,7 +19,7 @@ header {
 }
 
 .header {
-    background-color: rgba(0, 0, 0, 0.945);
+    background-color: rgb(0, 0, 0);
     color: white;
     padding: 1rem;
 }
